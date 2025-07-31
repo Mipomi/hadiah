@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hadiah</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', monospace;
+      background-image: url('/image/P2.jpeg');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    #openBtn, #closeBtn {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    #openBtn {
+      background-color: #f57f17;
+      color: white;
+    }
+
+    #closeBtn {
+      background-color: #00796b;
+      color: white;
+      display: none;
+    }
+
+    #paper {
+  background: #fff9e3;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  max-width: 90%;
+  width: 90%;
+  max-height: 60vh; /* Tambahkan tinggi maksimal */
+  overflow-y: auto;  /* Aktifkan scroll vertikal */
+  display: none;
+  position: relative;
+}
+
+#message {
+  font-size: 17px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+  </style>
+</head>
+<body>
+
+  <button id="openBtn">🎁 Buka Pesan</button>
+
+  <div id="paper">
+    <div id="message"></div>
+  </div>
+
+  <button id="closeBtn">Tutup</button>
+
+  <script>
+    const openBtn = document.getElementById('openBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const paper = document.getElementById('paper');
+    const message = document.getElementById('message');
+
+    const text = `Untuk adek... Ga nyangka ya udh 3 tahunan kita bareng. Banyak kejadian dan masalah yg kita hadapi selama ini. Aku sangat seneng deh bisa kenal adek. Aku tau aku banyak kurang nya, tapi dari setiap kejadian ini aku bakal selalu belajar terus. Maaf ya, aku tau aku banyak nyusahin adek, dengan sikap ku yang banyak salah nya dan makasih juga ya adek udh masih bertahan dengan aku ini. Aku ga tau mau omong apa lagi selain cuma seneng dan beruntung bisa punya adek dan makasih karena masih udh tahan sama aku. Aku bakal usahain semuanya buat adek, baik dalam perubahan dan belajar tiap ada masalah. Maaf untuk semua masalah dengan ku ini, jangan tinggalkan aku ya adek. Aku benar-benar seneng sama adek, cuma sama adek yg bisa buat aku seneng. Aku tau aku emang masalah nya, tapi aku bakal usahain semua biar aku bisa berubah jadi lebih baik lagi, jangan tinggalkan aku ya. Aku tau pasti berat juga buat adek, aku bener bener minta maaf. Aku bakal berubah lagi biar bisa buat adek nyaman, aku mungkin akan lama buat adek tapi percayalah kalo aku bakal mau serius sama adek. Tunggu aku ya, maaf kalo lama. Aku bakal usahakan semuanya biar cepat. Makasih, jangan tinggalkan aku, aku bakal usahakan semuanya buat sama adek. Aku bener-bener sayang adek, Love you cantik 🫶`;
+
+    let index = 0;
+
+    function typeWriter() {
+      if (index < text.length) {
+        message.textContent += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 30);
+      } else {
+        closeBtn.style.display = 'inline-block';
+      }
+    }
+
+    openBtn.addEventListener('click', () => {
+      openBtn.style.display = 'none';
+      paper.style.display = 'block';
+      typeWriter();
+    });
+
+    closeBtn.addEventListener('click', () => {
+      window.location.href = 'utama.html';
+    });
+  </script>
+
+</body>
+</html>
